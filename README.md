@@ -1,4 +1,7 @@
 [![](https://jitpack.io/v/ThothDroid/MAAT.svg)](https://jitpack.io/#ThothDroid/MAAT)
+
+![Feature Graphic](Feature graphic.png)
+
 # Mobile API for Ancient Texts (MAAT)
 A library for rendering Egyptian hieroglyphic texts by using the `GlyphX` format. \
 \
