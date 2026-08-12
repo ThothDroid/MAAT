@@ -121,6 +121,16 @@ ArrayList<Rect> bounds = boundCalculation.getBounds(dimensions, property);
 ```
 Now you can use the position and scale values stored in the `Rect` instances and apply them to your images.
 
+## Supported Codes
+The MAAT library supports the following codes:
+- `<sign id="X"/>` A single sign. The id is the code of the hieroglyph. The library supports both Gardiner's Sign List and their phonetic alternates.
+- `<v></v>` Items inside are arranged vertically
+- `<h></h>` Items inside are arranged horizontally
+- `<br/>` A line break
+- `<pbr/>` A page break
+- `<space/>` Acts like as a space between two signs. The width and height of the space is equal to half of the `textSize` value in the `BoundProperty`.
+- `<gap/>` The same as `<space/>` but with a width and height equal to the `textSize` value in the `BoundProperty`.
+
 ## Version Catalog
 ### 13.09.2025@1.0.0
 This is the first release of the MAAT library.
