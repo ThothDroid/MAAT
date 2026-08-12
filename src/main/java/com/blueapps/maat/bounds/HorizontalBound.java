@@ -28,13 +28,6 @@ public class HorizontalBound extends LayoutBound {
         float firstOverallWidth = 0f;
         float secondOverallWidth = 0f;
 
-        // reverse order for RTL layout
-        if (property.getWritingDirection() == BoundProperty.WRITING_DIRECTION_RTL) {
-
-            Collections.reverse(boundCalculations);
-
-        }
-
         int count = 0;
         for (Bound bound: boundCalculations){
             int myWidth = 0;
