@@ -132,6 +132,8 @@ The MAAT library supports the following codes:
 - `<gap/>` The same as `<space/>` but with a width and height equal to the `textSize` value in the `BoundProperty`.
 
 ## Version Catalog
+> [!IMPORTANT]
+> Since version `12.08.2026@1.6.0` the version catalog uses the new versioning system [see here](https://medium.com/@wassimsakri/the-ultimate-guide-to-versioning-in-software-development-e846eb292a0d).
 ### 13.09.2025@1.0.0
 This is the first release of the MAAT library.
 ### 06.12.2025@1.5.0
