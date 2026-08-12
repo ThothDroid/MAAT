@@ -1,14 +1,13 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("com.android.library") version "9.2.0"
+    id("com.android.library") version "9.3.1"
     id("maven-publish")
-    id("org.jetbrains.kotlin.android") version "2.3.21"
 }
 
 android {
     namespace = "com.blueapps.maat"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
 
@@ -55,7 +54,7 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                groupId = "com.github.cristmasbox"
+                groupId = "com.github.ThothDroid"
                 artifactId = "maat"
                 version = "1.5.1"
             }

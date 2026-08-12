@@ -4,6 +4,7 @@ import static com.blueapps.maat.BoundCalculation.MAX_INDIVIDUAL_SCALE;
 
 import android.graphics.Rect;
 
+import com.blueapps.maat.BoundCalculation;
 import com.blueapps.maat.BoundProperty;
 import com.blueapps.maat.ValuePair;
 
@@ -30,9 +31,7 @@ public class HorizontalBound extends LayoutBound {
         // reverse order for RTL layout
         if (property.getWritingDirection() == BoundProperty.WRITING_DIRECTION_RTL) {
 
-            ArrayList<Bound> line = new ArrayList<>(boundCalculations);
-            Collections.reverse(line);
-            boundCalculations = new ArrayList<>(line);
+            Collections.reverse(boundCalculations);
 
         }
 
