@@ -38,7 +38,7 @@ dependencies {
 > For the implementation for other build systems like `Groovy` see [here](https://jitpack.io/#ThothDroid/MAAT/)
 
 ## Implementation with `.aar` file
-Download the `MAAT_debug_versionname.aar` file from this repository, create a `libs` folder in your project directory and paste the file there. Then add this dependency to your `build.gradle.kts` file:
+Download the [`MAAT_versionname.aar`](https://github.com/ThothDroid/MAAT/releases/latest) file from the latest release, create a `libs` folder in your project directory and paste the file there. Then add this dependency to your `build.gradle.kts` file:
 ```
 dependencies {
   implementation(files("../libs/MAAT_versionname.aar"))
