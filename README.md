@@ -31,7 +31,7 @@ dependencyResolutionManagement {
 Then add this dependency to your `build.gradle.kts` file:
 ```
 dependencies {
-  implementation("com.github.ThothDroid:MAAT:1.5.1")
+  implementation("com.github.ThothDroid:MAAT:1.6.0")
 }
 ```
 > [!NOTE]
@@ -141,5 +141,9 @@ This is the first release of the MAAT library.
 ### 07.12.2025@1.5.1
 - dependencies upgraded
 - Minor bug fixes related to `RTL` layout.
+### 12.08.2026@1.6.0
+- dependency upgrades
+- Fixed bug related to `RTL` layout
+- Support for `space` and `gap` tags added
 ### latest Version
-`07.12.2025@1.5.1`
+`12.08.2026@1.6.0`
