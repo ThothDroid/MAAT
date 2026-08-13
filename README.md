@@ -128,7 +128,7 @@ The MAAT library supports the following codes:
 - `<h></h>` Items inside are arranged horizontally
 - `<br/>` A line break
 - `<pbr/>` A page break
-- `<space/>` Acts like as a space between two signs. The width and height of the space is equal to half of the `textSize` value in the `BoundProperty`.
+- `<space/>` Acts as a space between signs. The width and height of the space is equal to half of the `textSize` value in the `BoundProperty`.
 - `<gap/>` The same as `<space/>` but with a width and height equal to the `textSize` value in the `BoundProperty`.
 
 ## Version Catalog
