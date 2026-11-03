@@ -3,6 +3,7 @@ package com.blueapps.maat.bounds;
 import android.graphics.Rect;
 
 import com.blueapps.maat.BoundProperty;
+import com.blueapps.maat.MaatAdapter;
 import com.blueapps.maat.ValuePair;
 
 import org.w3c.dom.Element;
@@ -12,7 +13,6 @@ import java.util.ArrayList;
 public abstract class Bound {
 
     protected BoundProperty property;
-    protected ArrayList<ValuePair<Float, Float>> dimensions;
 
     protected float width = 0;
     protected float height = 0;
@@ -23,9 +23,8 @@ public abstract class Bound {
         this.element = element;
     }
 
-    public Rect getBound(BoundProperty property, ArrayList<ValuePair<Float, Float>> dimensions){
+    public Rect getBound(BoundProperty property, MaatAdapter adapter){
         this.property = property;
-        this.dimensions = dimensions;
         return new Rect();
     }
 

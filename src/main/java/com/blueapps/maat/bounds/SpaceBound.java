@@ -7,6 +7,7 @@ import static com.blueapps.maat.BoundCalculation.XML_GAP_TAG;
 import android.graphics.Rect;
 
 import com.blueapps.maat.BoundProperty;
+import com.blueapps.maat.MaatAdapter;
 import com.blueapps.maat.ValuePair;
 
 import org.w3c.dom.Element;
@@ -24,8 +25,8 @@ public class SpaceBound extends Bound{
     }
 
     @Override
-    public Rect getBound(BoundProperty property, ArrayList<ValuePair<Float, Float>> dimensions) {
-        super.getBound(property, dimensions);
+    public Rect getBound(BoundProperty property, MaatAdapter adapter) {
+        super.getBound(property, adapter);
 
         Rect bound = new Rect(0, 0, 0, 0);
         if (large){

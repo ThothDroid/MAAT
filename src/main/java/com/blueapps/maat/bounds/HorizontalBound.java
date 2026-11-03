@@ -6,6 +6,7 @@ import android.graphics.Rect;
 
 import com.blueapps.maat.BoundCalculation;
 import com.blueapps.maat.BoundProperty;
+import com.blueapps.maat.MaatAdapter;
 import com.blueapps.maat.ValuePair;
 
 import org.w3c.dom.Element;
@@ -20,7 +21,7 @@ public class HorizontalBound extends LayoutBound {
     }
 
     @Override
-    public Rect getBound(BoundProperty property, ArrayList<ValuePair<Float, Float>> dimensions) {
+    public Rect getBound(BoundProperty property, MaatAdapter adapter) {
         ArrayList<Rect> firstBounds = new ArrayList<>();
         ArrayList<Rect> secondBounds = new ArrayList<>();
         ArrayList<Rect> thirdBounds = new ArrayList<>();
@@ -33,13 +34,8 @@ public class HorizontalBound extends LayoutBound {
             int myWidth = 0;
 
             if (bound instanceof SimpleBound || bound instanceof LayoutBound) {
-                ArrayList<ValuePair<Float, Float>> dimension = new ArrayList<>();
-                int signCount = bound.getSignCount();
-                for (int i = 0; i < signCount; i++) {
-                    dimension.add(dimensions.get(count));
-                    count++;
-                }
-                Rect myBound = bound.getBound(property, dimension);
+
+                Rect myBound = bound.getBound(property, adapter);
 
                 myWidth = myBound.width();
                 int height = myBound.height();
@@ -50,7 +46,7 @@ public class HorizontalBound extends LayoutBound {
 
                 firstBounds.add(myBound);
             } else if (bound instanceof SpaceBound){
-                Rect myBound = bound.getBound(property, new ArrayList<>());
+                Rect myBound = bound.getBound(property, adapter);
                 myWidth = myBound.width();
                 firstBounds.add(myBound);
             }

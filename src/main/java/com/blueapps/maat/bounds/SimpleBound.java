@@ -13,6 +13,7 @@ import android.graphics.Rect;
 import android.util.Log;
 
 import com.blueapps.maat.BoundProperty;
+import com.blueapps.maat.MaatAdapter;
 import com.blueapps.maat.ValuePair;
 
 import org.w3c.dom.Element;
@@ -23,7 +24,7 @@ public class SimpleBound extends Bound{
 
     private static final String TAG = "SimpleBound";
 
-    private String id;
+    private final String id;
 
     public SimpleBound(Element element) {
         super(element);
@@ -31,14 +32,14 @@ public class SimpleBound extends Bound{
     }
 
     @Override
-    public Rect getBound(BoundProperty property, ArrayList<ValuePair<Float, Float>> dimensions) {
+    public Rect getBound(BoundProperty property, MaatAdapter adapter) {
         this.property = property;
-        this.dimensions = dimensions;
 
         Rect bound;
 
-        float boundWidth = dimensions.get(0).getKey();
-        float boundHeight = dimensions.get(0).getValue();
+        ValuePair<Float, Float> dimension = adapter.measureSignDimension(this.id);
+        float boundWidth = dimension.getKey();
+        float boundHeight = dimension.getValue();
         float y = 0;
         float x = 0;
 

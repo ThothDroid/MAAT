@@ -33,7 +33,6 @@ public class BoundCalculation {
     private float height = 0f;
 
     private Document XMLContent;
-    private ArrayList<ValuePair<Float, Float>> Dimensions;
     private BoundProperty property;
 
     private ArrayList<Bound> boundCalculations = new ArrayList<>();
@@ -111,10 +110,9 @@ public class BoundCalculation {
         }
     }
 
-    public ArrayList<Rect> getBounds(ArrayList<ValuePair<Float, Float>> dimensions, BoundProperty property){
+    public ArrayList<Rect> getBounds(BoundProperty property, MaatAdapter adapter){
         ArrayList<Rect> bounds = new ArrayList<>();
         ArrayList<Rect> returnBounds = new ArrayList<>();
-        this.Dimensions = dimensions;
         this.property = property;
 
         // Calculate linePadding
@@ -146,14 +144,7 @@ public class BoundCalculation {
 
             } else {
 
-                ArrayList<ValuePair<Float, Float>> dimension = new ArrayList<>();
-                int signCount = bound.getSignCount();
-                for (int i = 0; i < signCount; i++) {
-                    dimension.add(dimensions.get(count));
-                    count++;
-                }
-
-                Rect boundBound = new Rect(bound.getBound(property, dimension));
+                Rect boundBound = new Rect(bound.getBound(property, adapter));
 
                 boundBound.left = (int) (boundBound.left + xCursor);
                 boundBound.right = (int) (boundBound.right + xCursor);
