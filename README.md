@@ -1,4 +1,12 @@
-[![](https://jitpack.io/v/ThothDroid/MAAT.svg)](https://jitpack.io/#ThothDroid/MAAT)
+[![GitHub Repo stars](https://img.shields.io/github/stars/ThothDroid/MAAT?style=for-the-badge&logo=github&color=yellowgreen)](https://github.com/ThothDroid/MAAT)
+[![Static part of Badge](https://img.shields.io/badge/Part%20of-Egyptian%20Writer%20App-%233DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/ThothDroid/Egyptian_Writer/)
+[![GitHub License](https://img.shields.io/github/license/ThothDroid/MAAT?style=for-the-badge&logo=gnu&color=yellow)](https://github.com/ThothDroid/MAAT?tab=GPL-3.0-1-ov-file)
+[![GitHub forks](https://img.shields.io/github/forks/ThothDroid/MAAT?style=for-the-badge&logo=git&logoColor=white&color=%23F05032)](https://github.com/ThothDroid/MAAT)
+\
+[![jitpack](https://jitpack.io/v/ThothDroid/MAAT.svg)](https://jitpack.io/#ThothDroid/MAAT)
+[![Static wiki Badge](https://img.shields.io/badge/Egyptian%20Writer-WIKI-yellow?style=flat&logo=gitbook&logoColor=white)](https://github.com/ThothDroid/Egyptian_Writer/wiki)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ThothDroid/MAAT?color=blue)](https://github.com/ThothDroid/MAAT)
+[![GitHub Release](https://img.shields.io/github/v/release/ThothDroid/MAAT?color=%23F05032)](https://github.com/ThothDroid/MAAT/releases/latest)
 
 ![Feature Graphic](Feature_Graphic.png)
 
