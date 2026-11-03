@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import com.blueapps.maat.BoundProperty;
 import com.blueapps.maat.MaatAdapter;
 import com.blueapps.maat.ValuePair;
+import com.blueapps.maat.result.Result;
 
 import org.w3c.dom.Element;
 
@@ -28,9 +29,9 @@ public abstract class Bound {
         return new Rect();
     }
 
-    public ArrayList<Rect> getBounds(Rect newBound){
-        ArrayList<Rect> bounds = new ArrayList<>();
-        bounds.add(newBound);
+    public ArrayList<Result> getBounds(Rect newBound){
+        ArrayList<Result> bounds = new ArrayList<>();
+        bounds.add(new Result());
         return bounds;
     }
 

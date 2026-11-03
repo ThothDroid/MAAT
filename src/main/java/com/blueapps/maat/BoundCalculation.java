@@ -10,6 +10,7 @@ import com.blueapps.maat.bounds.LayoutBound;
 import com.blueapps.maat.bounds.SimpleBound;
 import com.blueapps.maat.bounds.SpaceBound;
 import com.blueapps.maat.bounds.VertBound;
+import com.blueapps.maat.result.Result;
 
 import org.w3c.dom.Comment;
 import org.w3c.dom.Document;
@@ -110,9 +111,9 @@ public class BoundCalculation {
         }
     }
 
-    public ArrayList<Rect> getBounds(BoundProperty property, MaatAdapter adapter){
+    public ArrayList<Result> getBounds(BoundProperty property, MaatAdapter adapter){
         ArrayList<Rect> bounds = new ArrayList<>();
-        ArrayList<Rect> returnBounds = new ArrayList<>();
+        ArrayList<Result> returnBounds = new ArrayList<>();
         this.property = property;
 
         // Calculate linePadding
@@ -127,7 +128,6 @@ public class BoundCalculation {
         xCursor = property.getX() + property.getPagePaddingLeft();
         yCursor = property.getY() + property.getPagePaddingTop();
 
-        int count = 0;
         for (Bound bound: boundCalculations){
 
             if (bound instanceof BreakBound){
@@ -179,8 +179,8 @@ public class BoundCalculation {
 
             if (bound instanceof SimpleBound || bound instanceof LayoutBound){
                 Rect boundBound = bounds.get(counter);
-                ArrayList<Rect> bounds2 = bound.getBounds(boundBound);
-                returnBounds.addAll(bounds2);
+                ArrayList<Result> newBounds = bound.getBounds(boundBound);
+                returnBounds.addAll(newBounds);
 
                 counter++;
             }
