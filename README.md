@@ -49,7 +49,8 @@ dependencies {
 > If you renamed the `.aar` file you also have to change the name in the dependencies
 
 ## Usage
-First add this code to get the ids of all hieroglyphs used in the `GlyphX` document.
+### Step 1
+First add this code to initialize the Maat Library using the `GlyphX` document.
 ```
 String GlyphXContent = "";  // Save your GlyphX string here
 
@@ -61,27 +62,31 @@ builder = factory.newDocumentBuilder();                                         
 Document GlyphXDocument = builder.parse(new InputSource(new StringReader(GlyphXContent)));  // Parse the content to Document object
 
 BoundCalculation boundCalculation = new BoundCalculation(GlyphXDocument);                   // Create an object of the BoundCalculation class
-ArrayList<String> ids = boundCalculation.getIds(false, false);                              // Get the ids of all the hieroglyphs e.g. ["sn","n","nw","w","A1"]
+```
+### Step 2 (optional)
+Now, you can optionally get all ids used in the `GlyphX` document. This could be useful for analytics or caching.
+<br>**You can [skip this step](#step-3), if you only want to get the bounds of the signs.**
+
+You can get the ids using this code:
+```
+ArrayList<String> ids = boundCalculation.getIds(false, false);    // Get the ids of all the hieroglyphs e.g. ["sn","n","nw","w","A1"]
 ```
 **The method to get the ids has two parameters:**<br/>
 `getIds(boolean lines, boolean rtl)`<br/>
 The first parameter is the `writingLayout`:
 - `lines`: `true`
 - `columns`: `false`
+
 The second parameter is the `writingDirection`:
 - `RTL`: `true`
 - `LTR`: `false`
 > [!IMPORTANT]
 > The parameters have to be the same as used in the `BoundProperty`!
 
-The ids are either codes from [Gardiner's Sign List](https://ancientegyptonline.co.uk/Gardiner-sign-list/) like `A1`, `Z1`, `A1B` or `O34` or their [phonetic alternates](http://71.174.62.16/image/WebGlyph/SmallCollection.pdf) like `sn`, `zA`, `xAst` or `ra`.<br/><br/>
-In the next step you have to find the right images representing the ids. When you found them, you have to get their dimensions and store them in an `ArrayList<ValuePair<Float, Float>>`. The first `Float`-value is the width and the second is the height of the image.
-> [!Caution]
-> The width and height values in the `ArrayList` must be in the same order as the equivalent ids.
+The ids are either codes from [Gardiner's Sign List](https://ancientegyptonline.co.uk/Gardiner-sign-list/) like `A1`, `Z1`, `A1B` or `O34` or their [phonetic alternates](http://71.174.62.16/image/WebGlyph/SmallCollection.pdf) like `sn`, `zA`, `xAst` or `ra`.
+### Step 3
 
-<br/>
-
-Now you have to set up the `BoundProperty`. This class is included in the library and there you store all the settings for the library.
+In the next step, you have to set up the `BoundProperty`. This class is included in the library and there you store all the settings for the library.
 ```
 BoundProperty property = new BoundProperty(x, y, textSize,
                             verticalOrientation, writingDirection, writingLayout,
@@ -113,12 +118,34 @@ Here is the explanation for the parameters:
   - `layoutSignPadding` This value defines the relative space between two signs which are in the same group
   - `interLinePadding` This is the space between the lines / columns of the text
 
+### Step 4
+After that, it is time to set up the `MaatAdapter`. The `MaatAdapter` serves as an adapter between the `Maat` library and your code. As the `Maat` library doesn't have direct access to the images, you have to perform architectural specific operations by yourself. To get the required data, and pass it back, you have to use the `MaatAdapter`.
 
+Enough theory, let's get started!
+
+The `MaatAdapter` is an Interface, featuring functions for all operations needed _(By now, only one)_. So create a class, which implements this Interface. In my case, an abstract class:
+
+```
+MaatAdapter maatAdapter = new MaatAdapter() {
+    @Override
+    public ValuePair<Float, Float> measureSignDimension(String id) {
+        float width = 0f;
+        float height = 0f;
+        
+        // Put your code to get the dimensions of a Sign here
+        // assign real values to width and height variables
+        
+        return new ValuePair<>(width, height);
+    }
+};
+```
+
+### Step 5
 Finally get the calculated bounds:
 ```
-ArrayList<ValuePair<Float, Float>> dimensions = new ArrayList<>();  // Store the dimensions of the signs here
-ArrayList<Rect> bounds = boundCalculation.getBounds(dimensions, property);
+ArrayList<Rect> bounds = boundCalculation.getBounds(property, maatAdapter);
 ```
+That's it!<br>
 Now you can use the position and scale values stored in the `Rect` instances and apply them to your images.
 
 ## Supported Codes
