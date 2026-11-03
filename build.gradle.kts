@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("com.android.library") version "9.3.1"
+    id("com.android.library") version "9.5.0"
     id("maven-publish")
 }
 
