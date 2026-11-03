@@ -151,10 +151,14 @@ MaatAdapter maatAdapter = new MaatAdapter() {
 ### Step 5
 Finally get the calculated bounds:
 ```
-ArrayList<Rect> bounds = boundCalculation.getBounds(property, maatAdapter);
+ArrayList<Part> parts = boundCalculation.getBounds(property, maatAdapter);
 ```
+You get an `ArrayList` of `Part`-objects, each object representing a part of the text. Now you can loop through the `ArrayList` and render every part.
+<br>Currently, there are these types of parts:
+- `SignPart` represents a single Hieroglyph. It contains a String (`getId()`) which stores the id of the sign and a `Rect` (`getBound()`), which stores the position and scale value
+
+
 That's it!<br>
-Now you can use the position and scale values stored in the `Rect` instances and apply them to your images.
 
 ## Supported Codes
 The MAAT library supports the following codes:
