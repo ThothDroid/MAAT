@@ -5,7 +5,6 @@ import static com.blueapps.maat.BoundCalculation.STANDARD_WIDTH_VALUE;
 import static com.blueapps.maat.BoundCalculation.XML_ID_ATTRIBUTE;
 import static com.blueapps.maat.BoundProperty.VERTICAL_ORIENTATION_DOWN;
 import static com.blueapps.maat.BoundProperty.VERTICAL_ORIENTATION_MIDDLE;
-import static com.blueapps.maat.BoundProperty.VERTICAL_ORIENTATION_UP;
 import static com.blueapps.maat.BoundProperty.WRITING_LAYOUT_COLUMNS;
 import static com.blueapps.maat.BoundProperty.WRITING_LAYOUT_LINES;
 
@@ -15,8 +14,8 @@ import android.util.Log;
 import com.blueapps.maat.BoundProperty;
 import com.blueapps.maat.MaatAdapter;
 import com.blueapps.maat.ValuePair;
-import com.blueapps.maat.result.Result;
-import com.blueapps.maat.result.SignResult;
+import com.blueapps.maat.parts.Part;
+import com.blueapps.maat.parts.SignPart;
 
 import org.w3c.dom.Element;
 
@@ -110,9 +109,9 @@ public class SimpleBound extends Bound{
     }
 
     @Override
-    public ArrayList<Result> getBounds(Rect newBound) {
-        ArrayList<Result> bounds = new ArrayList<>();
-        bounds.add(new SignResult(id, newBound));
+    public ArrayList<Part> getBounds(Rect newBound) {
+        ArrayList<Part> bounds = new ArrayList<>();
+        bounds.add(new SignPart(id, newBound));
         return bounds;
     }
 

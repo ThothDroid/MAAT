@@ -9,7 +9,7 @@ import static com.blueapps.maat.BoundCalculation.XML_V_TAG;
 import android.graphics.Rect;
 import android.util.Log;
 
-import com.blueapps.maat.result.Result;
+import com.blueapps.maat.parts.Part;
 
 import org.w3c.dom.Comment;
 import org.w3c.dom.Element;
@@ -81,8 +81,8 @@ public class LayoutBound extends Bound{
     }
 
     @Override
-    public ArrayList<Result> getBounds(Rect newBound) {
-        ArrayList<Result> returnBounds = new ArrayList<>();
+    public ArrayList<Part> getBounds(Rect newBound) {
+        ArrayList<Part> returnBounds = new ArrayList<>();
 
         float scaleX = (float) newBound.width() / myBound.width();
         float scaleY = (float) newBound.height() / myBound.height();

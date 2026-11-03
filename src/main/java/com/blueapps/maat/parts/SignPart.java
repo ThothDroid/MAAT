@@ -1,13 +1,13 @@
-package com.blueapps.maat.result;
+package com.blueapps.maat.parts;
 
 import android.graphics.Rect;
 
-public class SignResult extends Result {
+public class SignPart extends Part {
 
     private final String id;
     private final Rect bound;
 
-    public SignResult(String id, Rect bound){
+    public SignPart(String id, Rect bound){
         this.id = id;
         this.bound = bound;
     }
