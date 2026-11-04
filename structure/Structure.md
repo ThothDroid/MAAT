@@ -1,2 +1,6 @@
 # Code structure
 This documentation aims to increase the understanding of the code, by providing some fluid diagrams. The goodnotes files are the original files, in case you also use Goodnotes. Unfortunately this are my private notes, so they are in German, my native language.
+
+## Ligatures
+A feature not yet implemented, du to a lack of ligature data _(I am working on it)_.
+[![](./Ligatures.png)](./Ligatures.png)
